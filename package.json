@@ -1,7 +1,7 @@
 {
-  "name": "api-auth-register",
+  "name": "auth-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "repository": "https://github.com/RitoTorri/api-auth-register",
   "author": "RitoTorri <cortezfrancisco025@gmail.com>",
   "license": "MIT",
