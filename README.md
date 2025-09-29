@@ -1,4 +1,4 @@
-# 🔐 AuthAPI
+# 🔐 AuthAPI 
 
 Una API de autenticación robusta y fácil de implementar que elimina la carga repetitiva de manejar registro y autenticación de usuarios en tus proyectos.
 
