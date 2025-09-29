@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AuthAPI",
+    "version": "1.0.0",
+    "description": "Esta API permite registrar y autenticar usuarios."
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login de un usuario",
+        "description": "Login de un usuario, retorna el token de autenticación.",
+        "tags": ["Auth"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "El email y la contraseña del usuario que se quiere autenticar.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "mi@email.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "miPassword"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve el token de autenticación"
+          },
+          "422" : {
+            "description": "Error en el formato del email o la contraseña solicitadas."
+          },
+          "400": {
+            "description": "Falta el email o la contraseña solicitadas. Tambien posible contraseña incorrecta."
+          },
+          "404": {
+            "description" : "No existe un usuario con este correo electronico."
+          },
+          "500" : {
+            "description": "Error interno del servidor. Posible error en conexión con la base de datos."
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Registro de un usuario",
+        "description": "Registro de un usuario en la base de datos.",
+        "tags": ["Register"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "El email y la contraseña del usuario que se quiere registrar.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "mi@email.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "miPassword"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "El usuario fue creado correctamente."
+          },
+          "422" : {
+            "description": "Error en el formato los parametros solicitados."
+          },
+          "400": {
+            "description": "Faltan algunos parametros solicitados."
+          },
+          "409": {
+            "description": "Ya existe un usuario con ese email."
+          },
+          "500" : {
+            "description": "Error interno del servidor. Posible error en conexión con la base de datos."
+          }
+        }
+      }
+    }
+  }
+}
