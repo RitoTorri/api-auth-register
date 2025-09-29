@@ -14,7 +14,7 @@
     "/login": {
       "post": {
         "summary": "Login de un usuario",
-        "description": "Login de un usuario, retorna el token de autenticación.",
+        "description": "Login de un usuario, retorna el token de autenticación con los datos del usaurio(id y email).",
         "tags": ["Auth"],
         "parameters": [
           {
