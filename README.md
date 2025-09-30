@@ -73,55 +73,6 @@ CREATE TABLE Usuarios (
 2. Modificar los endpoints para recibir los nuevos parámetros
 3. Actualizar la consulta de registro
 
-**Ejemplo de campos adicionales:**
-```sql
-ALTER TABLE Usuarios ADD COLUMN nombre VARCHAR(100);
-ALTER TABLE Usuarios ADD COLUMN apellido VARCHAR(100);
-ALTER TABLE Usuarios ADD COLUMN telefono VARCHAR(15);
-```
-
-## 📡 Endpoints
-
-### 🔑 Autenticación
-
-#### `POST /api/v1/login`
-Autentica un usuario y retorna un token JWT con los datos del usuario con el id y el email.
-
-**Body:**
-```json
-{
-  "email": "usuario@ejemplo.com",
-  "password": "contraseñaSegura123"
-}
-```
-
-**Respuestas:**
-- `200` - ✅ Login exitoso, retorna token
-- `400` - ❌ Faltan credenciales o contraseña incorrecta
-- `404` - ❌ Usuario no encontrado
-- `422` - ❌ Formato de email o contraseña inválido
-- `500` - ❌ Error interno del servidor
-
-### 📝 Registro
-
-#### `POST /api/v1/register`
-Registra un nuevo usuario en el sistema.
-
-**Body:**
-```json
-{
-  "email": "nuevo@usuario.com",
-  "password": "contraseñaSegura123"
-}
-```
-
-**Respuestas:**
-- `201` - ✅ Usuario creado exitosamente
-- `400` - ❌ Faltan parámetros requeridos
-- `409` - ❌ El usuario ya existe
-- `422` - ❌ Formato de parámetros inválido
-- `500` - ❌ Error interno del servidor
-
 ## 🤝 Contribuciones
 
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar esta API, no dudes en hacer un fork y crear un pull request.
